@@ -1,0 +1,40 @@
+<app-no-encontrada [visible]="!food" notFoundMesage="Aun no Haz agregado Comidas" ressetLinkText="Volver a Pagina Principal"></app-no-encontrada>
+<div *ngIf="food && food.length > 0" class="container">
+    <ul>
+        <li *ngFor="let food of food">
+          <div>
+            <img [src]="food.comida.image" [alt]="food.comida.nombre" />
+          </div>
+          <div>
+            <a routerLink="/food/{{ food.comida.id }}">{{
+              food.comida.nombre
+            }}</a>
+          </div>
+          <div>
+          </div>
+          <div>
+            {{ food.comida.price | currency }}
+          </div>
+    
+          <div>
+            <button class="remove-button" (click)="eliminarComida(food.id)">
+              Eliminar Producto
+            </button>
+            <p-toast></p-toast>
+          </div>
+        </li>
+      </ul>
+    
+      <div class="checkout">
+        <div class="food-count ">
+          {{totalProducts}}
+        </div>
+        <div class="food-price">
+          
+        </div>
+      <a [routerLink]="['/']" (click)="pagar()">Pagar</a> 
+      <p-toast></p-toast>
+      </div>
+
+   
+</div>

@@ -1,0 +1,97 @@
+<p-card header="Agregar Nueva Comida">
+    <form [formGroup]="comidaForm" class="p-fluid p-mx-auto" (ngSubmit)=" guardarComida()">
+        <div class="field p-mb-2">
+          <label for="nombre" class="block">Nombre</label>
+          <input
+            type="text"
+            pInputText
+            required
+            placeholder="Ingrese El Titulo De la categoria"
+            formControlName="nombre"
+          />
+          <small
+            class="p-error block"
+            *ngIf="
+            comidaForm.get('nombre')?.invalid &&
+            comidaForm.get('nombre')?.dirty
+            "
+            >Es necesario el nombre</small
+          >
+        </div>
+        <div class="field p-mb-2">
+          <label for="descripcion" class="block">Descripcion</label>
+          <textarea
+            rows="5"
+            cols="30"
+            pInputTextarea
+            placeholder="Ingrese una Descripcion de la Categoria"
+            required
+            formControlName="descripcion"
+          ></textarea>
+          <small
+            class="p-error block"
+            *ngIf="
+            comidaForm.get('descripcion')?.invalid &&
+            comidaForm.get('descripcion')?.dirty
+            "
+            >Es necesario la Descripcion</small
+          >
+        </div>
+
+        <div class="formgrid grid">
+
+        <div class="field col">
+            <label for="price" class="block">Price</label>
+            <p-inputNumber inputId="integeronly" placeholder="Ingrese el valor de la comida" formControlName="price"></p-inputNumber>
+            <small
+              class="p-error block"
+              *ngIf="
+              comidaForm.get('price')?.invalid &&
+              comidaForm.get('price')?.dirty
+              "
+              >Es necesario ingresar el valor de la comida</small
+            >
+          </div>
+
+          <div class="field col">
+            <label for="stars" class="block">Stars</label>
+            <p-inputNumber inputId="integeronly" placeholder="estrellas de la comida" formControlName="stars"></p-inputNumber>
+
+            <small
+              class="p-error block"
+              *ngIf="
+              comidaForm.get('numeroDePreguntas')?.invalid &&
+              comidaForm.get('numeroDePreguntas')?.dirty
+              "
+              >Es necesario ingresar las estrellas de la comida</small
+            >
+          </div>
+        </div>
+
+        <div class="field p-mb-2">
+          <label for="image" class="block">Imagen</label>
+          <input
+            type="file"
+            id="image"
+            formControlName="image"
+            (change)="onFileChange($event)"
+          />
+
+        </div>
+
+
+        <div class="formgrid grid">
+
+        <div class="field col-6">
+        <p-dropdown formControlName="categoria"  [options]="categorias"  optionLabel="titulo"></p-dropdown>
+    </div>
+    </div>
+    <div class="text-center">
+    <p-button label="Agregar" (click)=" guardarComida()" styleClass="p-button-danger w-1"></p-button>
+    <p-toast></p-toast>
+    </div>
+      </form>
+</p-card>
+
+
+

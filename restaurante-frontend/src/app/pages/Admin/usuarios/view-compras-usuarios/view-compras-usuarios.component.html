@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="grid">
+        <div class="col-8">
+        <p-card header="Compras hechas por el Usuario">
+            <div class="grid">
+                <ul *ngFor="let compra of comprasuser">
+                    <li>
+                        <div class="col-4">Fecha:</div>
+                        <div class="col">{{compra.date | date}}</div>
+                    </li>
+                    <li>
+                        <div class="col-4">Valor:</div>
+                        <div class="col">{{compra.total | currency}}</div>
+                    </li>
+                </ul>
+            </div>
+        </p-card>
+    </div>
+    </div>
+</div>

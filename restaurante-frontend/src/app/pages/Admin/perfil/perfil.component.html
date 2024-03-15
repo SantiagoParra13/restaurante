@@ -1,0 +1,74 @@
+<p-card >
+    <div class="grid">
+        <div class="col font-italic">Detalles De Perfil</div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <img src="assets/perfil.png" alt="Perfil" class="img-fluid" width="230px">
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="col text-2xl text-center">
+            {{ users && users[0] && users[0].nombre | titlecase }} {{ users && users[0] && users[0].apellido | titlecase }} 
+        </div>
+    </div>
+
+    <div class="grid justify-content-center mt-3">
+
+<div class="card ">
+    <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Rol</th>
+                <th>Estado</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.username}}</td>
+                <td>{{user.authorities[0].authority }}</td>
+                <td *ngIf="user.enabled; else disabled">Activo</td>
+                <ng-template #disabled>Inactivo</ng-template>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+    </div>
+    <div class="grid justify-content-center pt-3">
+    </div>
+    <p-card  header="Productos Comprados">
+<div *ngIf="compras" class="container">
+    <ul>
+        <li *ngFor="let compras of compras">
+          <div>
+            <img [src]="compras.comida.image" [alt]="compras.comida.nombre" />
+          </div>
+          <div>
+            <a routerLink="/food/{{ compras.comida.id }}">{{
+                compras.comida.nombre
+            }}</a>
+          </div>
+          <div>
+          </div>
+          <div>
+            {{ compras.comida.price | currency }}
+          </div>
+          <div>Cantidad:
+            {{ compras.amount }}
+          </div>
+          <div>Total Pagado:
+            {{ compras.sale.total | currency }}
+          </div>
+          <div>Fecha:
+            {{ compras.sale.date | date }}
+          </div>
+        </li>
+      </ul>
+    
+
+      </div>
+    </p-card>
+</p-card>

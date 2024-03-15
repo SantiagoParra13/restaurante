@@ -1,0 +1,20 @@
+<p-card class="m-5" header="Agregando Ingrediente a {{titulo}}">
+    <form [formGroup]="comidaForm">
+    <div class="grid">
+        <div class="col-4">
+            Ingrese los Ingredientes: 
+        </div>
+        <div class="col-4"> <input type="text" pInputText formControlName="nombre"/></div>
+        <div class="col-4"> <p-button label="Agregar Ingrediente" (click)=" agregarIngrediente()"></p-button></div>
+     </div>
+    </form>
+</p-card>
+
+<p-card header="Todos los ingredientes">
+    <div class="ingredient-list">
+      <div *ngFor="let ingredient of ingredientesComida" class="ingredient-item">
+        <p>{{ingredient.nombre}}</p>
+      </div>
+    </div>
+  </p-card>
+  

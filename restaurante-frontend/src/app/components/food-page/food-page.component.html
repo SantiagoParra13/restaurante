@@ -1,0 +1,35 @@
+<app-no-encontrada [visible]="!food" notFoundMesage="Producto No Encontrado" ressetLinkText="Volver a la Pagina Principal"></app-no-encontrada>
+
+<div *ngIf="food " class="container">
+    <img [src]="food.image" [alt]="food.nombre">
+
+
+<div class="details">
+    <div class="header">
+        <span class="name">{{food.nombre}}</span>
+        <span class="favorite {{food.favorite?'' :'not'}}">❤️</span>
+    </div>
+
+        <div class="star">
+            <ngx-stars [readonly]="true" [size]="1" [initialStars]="food.stars" ></ngx-stars>
+        </div>
+        <div class="tag">
+            <app-tags [foodPageTags]="food.categoria"></app-tags>
+        </div>
+        <form [formGroup]="carForm">
+            Cantidad
+            <p-dropdown formControlName="amount" [options]="amount" ></p-dropdown>
+        </form>
+        <div class="price">
+            <span>{{ food.price | currency}}</span>
+        </div>
+
+        <button (click)=" addToCart()">Añadir al Carrito</button>
+        <p-toast></p-toast>
+
+        <button  routerLink="/" class="nueva">+ Agregar otra Comida</button>
+
+        <p-button routerLink="/cart-page" icon="pi pi-shopping-cart" id="boton-fijo"  styleClass="border-circle font-size: 2rem p-button-danger " badgeClass="p-badge-danger" badge="{{badge}}" ></p-button>
+
+    </div>
+</div>

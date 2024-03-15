@@ -1,0 +1,79 @@
+<p-card header="Actualizar Comida">
+    <form (ngSubmit) = "actualizarDatos()" class="p-fluid p-mx-auto" *ngIf="comidaData">
+      <div class="field p-mb-2">
+        <label  class="block">Nombre</label>
+        <input
+          type="text"
+          pInputText
+          required
+          placeholder="Ingrese El nombre de la comida"
+          [(ngModel)]="comidaData.nombre"
+          name="nombre"
+        />
+      </div>
+      <div class="field p-mb-2">
+        <label class="block">Descripcion</label>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          placeholder="Ingrese una Descripcion de la Categoria"
+          required
+          [(ngModel)]="comidaData.descripcion"
+          name="descripcion"
+        ></textarea>
+      </div>
+
+      <div class="formgrid grid">
+        <div class="field col">
+          <label  class="block">Price</label>
+          <p-inputNumber
+            inputId="integeronly"
+            placeholder="Ingrese el price de la comida"
+            [(ngModel)]="comidaData.price"
+            name="price"
+          ></p-inputNumber>
+        </div>
+
+        <div class="field col">
+          <label  class="block">Stars</label>
+          <p-inputNumber
+            inputId="integeronly"
+            placeholder="Ingrese la Cantidad de Stars"
+            [(ngModel)]="comidaData.stars"
+            name="stars"
+          ></p-inputNumber>
+
+        </div>
+
+        <div class="field p-mb-2">
+          <label  class="block">Imagen</label>
+          <input
+            type="file"
+            name="image"
+            (change)="onFileChange($event)"
+          />
+      </div>
+
+      </div>
+      <div class="formgrid grid">
+
+
+        <div class="field col-9">
+          Categoria
+          <p-dropdown
+            name="categoria"
+            [options]="categoriaData"
+            optionLabel="titulo"
+          ></p-dropdown>
+
+        </div>
+      </div>
+      <div class="text-center">
+        <p-button label="Actualizar" (click)="actualizarDatos()"  styleClass="p-button-success w-1"></p-button>
+        <p-toast></p-toast>
+      </div>
+      
+    </form>
+  </p-card>
+

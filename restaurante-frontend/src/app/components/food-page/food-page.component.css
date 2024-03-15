@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem;
+}
+
+.container > * {
+  min-width: 25rem;
+  max-width: 40rem;
+}
+
+img {
+  border-radius: 3rem;
+  flex: 1 0;
+  object-fit: cover;
+  height: 30rem;
+  margin: 1rem;
+}
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  border-radius: 3rem;
+  padding: 2rem;
+  color: black;
+  margin-left: 1rem;
+}
+.details .header {
+  display: flex;
+  justify-content: space-between;
+}
+.details .name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.details .favorite {
+  color: #e72929;
+  font-size: 2.5rem;
+}
+.details .favorite.not {
+  color: gray;
+}
+.details .origins {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.details .origins > span {
+  padding: 5rem;
+  font-size: 1.2rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 2rem;
+  background-color: aliceblue;
+  color: white;
+}
+.details .origins > p {
+  background-color: rgb(160, 157, 157);
+  border-radius: 5px;
+  color: white;
+}
+.details .cook-time {
+  margin: 1rem;
+}
+.details .cook-time span {
+  padding: 0.6rem 2rem 0.6rem 0;
+  border-radius: 10rem;
+  font-size: 1.3rem;
+}
+.details .price {
+  font-size: 1.8rem;
+  margin: 1rem 1rem 1rem 0;
+  color: blue;
+}
+.details .price::before {
+  content: "Precio: ";
+  color: rgb(41, 39, 39);
+  font-family: bold;
+}
+.details button {
+  background-color: rgb(209, 18, 18);
+  border: none;
+  font-size: 1.3rem;
+  padding: 1rem;
+  outline: none;
+  color: white;
+  border-radius: 10rem;
+}
+.details button:hover {
+  cursor: pointer;
+  background-color: #9e0909;
+}
+
+
+#boton-fijo {
+  position: fixed;
+  top: 100px; /* Ajusta la distancia desde la parte inferior */
+  right: 20px; /* Ajusta la distancia desde la derecha */
+  z-index: 1000; /* Asegura que el botón esté en la parte superior */
+}
+
+.nueva{
+  position: fixed;
+  bottom: 40px; /* Ajusta la distancia desde la parte inferior */
+  right: 20px; /* Ajusta la distancia desde la derecha */
+  z-index: 1000; 
+  background-color: #9e0909;
+  cursor: pointer;
+ font-size: 10px;
+ border-radius: 40%;
+}

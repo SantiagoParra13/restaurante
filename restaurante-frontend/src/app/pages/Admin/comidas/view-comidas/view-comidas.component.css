@@ -1,0 +1,11 @@
+/* Estilo para el contenedor de la lista */
+.ingredient-list {
+    display: flex; /* Muestra los elementos en una fila horizontal */
+    overflow-x: auto; /* Agrega desplazamiento horizontal si hay demasiados elementos */
+  }
+  
+  /* Estilo para cada elemento de la lista */
+  .ingredient-item {
+    margin-right: 10px; /* Espacio entre elementos */
+  }
+  

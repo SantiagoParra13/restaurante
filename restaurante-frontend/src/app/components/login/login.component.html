@@ -1,0 +1,72 @@
+<div *ngIf="loginService.isLoggedIn(); then userContent else loginButton"></div>
+
+<ng-template #userContent>
+  <p-button  icon=" pipi-user" (click)="adminPerfil()"  styleClass="p-button-danger" label="{{ userCurrent.nombre }}"></p-button>
+</ng-template>
+<ng-template #loginButton>
+
+<p-button (click)="showDialog()" icon=" pipi-user" styleClass="p-button-danger" label="Iniciar Sesion"></p-button>
+<p-dialog  [(visible)]="visible" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '500px' }">
+  <p-card class="container"  [style]="{ width: '360px' }">
+    <div class=" p-d-flex p-jc-center p-ai-center">
+      <div class="grid">
+        <div class="col">
+          <div class="flex align-items-center justify-content-center">
+            <i class="pi pi-user" style="font-size: 6rem"></i>
+          </div>
+        </div>  
+      </div>
+      <div class="grid">
+        <div class="col text-3xl text-center">Iniciar Sesion</div>
+      </div>
+    
+      <div class="grid">
+        <div class="col">
+          <div
+            class="flex align-items-center justify-content-center"
+            style="height: 100%"
+          >
+            <form [formGroup]="loginForm">
+              <div class="field p-mb-2">
+                <label for="username">Nombre de Usuario</label>
+                <div class="card flex justify-content-center">
+                  <input
+                    type="text"
+                    placeholder="Ingrese su nombre de usuario"
+                    pInputText
+                    formControlName="username"
+                  />
+                </div>
+              </div>
+    
+              <div class="field p-mb-2">
+                <label for="password">Password</label>
+                <div class="card flex justify-content-center">
+                  <input
+                    type="password"
+                    placeholder="Ingrese Su password"
+                    pInputText
+                    formControlName="password"
+                  />
+                </div>
+              </div>
+              <div>
+                <div class="card flex justify-content-center">
+                  <button
+                    pButton
+                    (click)="iniciarSesion()"
+                    pRipple
+                    label="Inicar Sesion"
+                    class="p-button-danger"
+                  ></button>
+                  <p-toast></p-toast>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </p-card>
+</p-dialog>
+</ng-template>

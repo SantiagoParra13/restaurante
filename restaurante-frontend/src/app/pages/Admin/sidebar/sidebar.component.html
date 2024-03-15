@@ -1,0 +1,64 @@
+<div class="card flex justify-content-center mt-3 boton-fijo">
+    <p-sidebar [(visible)]="sidebarVisible">
+        <ng-template pTemplate="header">Restaurante</ng-template>
+        <ng-template pTemplate="content">
+            <ul>
+                <li><p-button styleClass="p-button-danger"  label="Welcome"  icon="pi pi-home" routerLink="/admin/welcome"></p-button></li>
+                <li><p-button styleClass="p-button-danger"  label="Perfil"  icon="pi pi-user" routerLink="/admin/perfil"></p-button></li>
+                <li><p-button styleClass="p-button-danger"  label="Categoria"  icon="pi pi-user" routerLink="/admin/categoria"></p-button></li>
+                <li><p-button styleClass="p-button-danger"  label="ver Categorias"  icon="pi pi-user" routerLink="/admin/view-categoria"></p-button></li>
+                <li>
+                    <p-dropdown [options]="comidas" placeholder="Comidas" optionLabel="name">
+                      <ng-template let-comida pTemplate="item">
+                        <a [routerLink]="[comida.route]">{{ comida.name }}</a>
+                      </ng-template>
+                    </p-dropdown>
+                  </li>
+                  <li>
+                    <p-dropdown [options]="ingredientes" placeholder="Ingredientes" optionLabel="name">
+                      <ng-template let-ingrediente pTemplate="item">
+                        <a [routerLink]="[ingrediente.route]">{{ ingrediente.name }}</a>
+                      </ng-template>
+                    </p-dropdown>
+                  </li>
+
+                  <li><p-button styleClass="p-button-danger"  label="ver Usuarios"  icon="pi pi-user" routerLink="/admin/view-usuarios"></p-button></li>
+            </ul>
+            
+        </ng-template>
+        <ng-template pTemplate="footer">Footer Content</ng-template>
+    </p-sidebar>
+    <p-button (click)="sidebarVisible = true"  id="side-fijo" styleClass="p-button-danger" icon="pi pi-list"></p-button>
+
+</div>
+
+<!-- 
+<input type="checkbox" id="check">
+<label for="check">
+    <i class='bx bx-menu' id="btn"></i>
+    <i class='bx bx-window-close' id="cancel"></i>
+</label>
+<div class="sidebar">
+    <header>My App</header>
+    <ul>
+        <li>
+            <a href="admin/perfil"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+        <li>
+            <a href="/"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+        <li>
+            <a href="/"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+        <li>
+            <a href="/"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+        <li>
+            <a href="/"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+        <li>
+            <a href="/"><i class='bx bx-user' >Perfil</i></a>
+        </li>
+
+    </ul>
+</div> -->

@@ -1,0 +1,62 @@
+
+  <div *ngIf="loginService.isLoggedIn(); then logout else register"></div>
+
+<ng-template #logout>
+  <p-button icon="pipi-user" (click)="cerrarSesion()" styleClass="p-button-danger" label="Cerrar Sesion"></p-button>
+</ng-template>
+
+  <ng-template #register>
+<p-button (click)="showDialog()" icon=" pi pi-user-plus" styleClass="p-button-danger"  label="Registrarse"></p-button>
+<p-dialog  [(visible)]="visible" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '500px' }">
+<p-card class="container"  [style]="{ width: '360px' }">
+    <div class=" p-d-flex p-jc-center p-ai-center">
+        <div class="grid">
+          <div class="col text-3xl text-center">Registrarse</div>
+        </div>
+      
+    </div>
+    <form [formGroup]="registerForm">
+        <div class="field p-mb-2">
+            <label for="username">Nombre de Usuario</label>
+            <div class="card flex justify-content-center">
+                <input type="text" placeholder="Ingrese su nombre de usuario" pInputText formControlName="username"/>
+            </div>
+        </div>
+
+        <div class="field p-mb-2">
+            <label for="nombre">Nombre</label>
+            <div class="card flex justify-content-center">
+                <input type="text" placeholder="Ingrese su nombre" pInputText formControlName="nombre"/>
+            </div>
+        </div>
+
+        <div class="field p-mb-2">
+            <label for="apellido">Apellido</label>
+            <div class="card flex justify-content-center">
+                <input type="text" placeholder="Ingrese su apellido" pInputText formControlName="apellido"/>
+            </div>
+        </div>
+
+        <div class="field p-mb-2">
+            <label for="email">Email</label>
+            <div class="card flex justify-content-center">
+                <input type="email" placeholder="Ingrese su email" pInputText formControlName="email"/>
+            </div>
+        </div>
+
+        <div class="field p-mb-2">
+            <label for="password">Password</label>
+            <div class="card flex justify-content-center">
+                <input type="password" placeholder="Ingrese su password" pInputText formControlName="password"/>
+            </div>
+        </div>
+        <div>
+            <div class="card flex justify-content-center">
+                <button pButton  label="Registrarse" (click)="registarUsuario()" class="p-button-danger"></button>
+            </div>
+            <p-toast></p-toast>
+        </div>
+    </form>
+</p-card>
+</p-dialog>
+</ng-template>

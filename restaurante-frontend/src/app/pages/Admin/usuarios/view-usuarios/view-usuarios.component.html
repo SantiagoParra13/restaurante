@@ -1,0 +1,63 @@
+<div class="container">
+    <p-card header="Usuarios">
+        <div class="grid">
+            <div class="col-6" *ngFor="let usuario of usuarios">
+                <p-card>
+                    <div class="flex justify-content-end flex-wrap">
+                        <img src="assets/user.png" alt="user.png" width="50px" />
+                    </div>
+                    <form class="p-fluid p-mx-auto m-5">
+                        <div class="formgrid grid">
+                            <div class="field col-3">
+                                <label class="block">Username</label>
+                            </div>
+                            <div class="field col-9">
+                                <input type="text" pInputText required [(ngModel)]="usuario.username" name="username" />
+                            </div>
+                        </div>
+
+                        <div class="formgrid grid">
+                            <div class="field col-3">
+                                <label class="block">Nombre</label>
+                            </div>
+                            <div class="field col-9">
+                                <input type="text" pInputText required [(ngModel)]="usuario.nombre" name="nombre" />
+                            </div>
+                        </div>
+
+                        <div class="formgrid grid">
+                            <div class="field col-3">
+                                <label class="block">Apellido</label>
+                            </div>
+                            <div class="field col-9">
+                                <input type="text" pInputText required [(ngModel)]="usuario.apellido"
+                                    name="apellido" />
+                            </div>
+                        </div>
+
+                        <div class="formgrid grid">
+                            <div class="field col-3">
+                                <label class="block">Estado</label>
+                            </div>
+                            <p-inputSwitch name="accountNonLocked"
+                                [(ngModel)]="usuario.accountNonLocked"></p-inputSwitch>
+                        </div>
+
+                        <div class="formgrid grid">
+                            <div class="field col-3">
+                                <label class="block">Email</label>
+                            </div>
+                            <div class="field col-9">
+                                <input type="email" pInputText required [(ngModel)]="usuario.email" name="email" />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p-button styleClass="p-button-danger w-3" [routerLink]="['/admin/view-compras-user', usuario.username]"  label="Ver compras" severity="danger"></p-button>
+                        </div>
+                        <p-toast></p-toast>
+                    </form>
+                </p-card>
+            </div>
+        </div>
+    </p-card>
+</div>

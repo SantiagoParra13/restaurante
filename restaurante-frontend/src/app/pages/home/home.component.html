@@ -1,0 +1,48 @@
+<div class="container">
+    <app-search></app-search>
+</div>
+<app-tags></app-tags>
+<div class="todas" id="boton-fijo" *ngIf="parametros">
+    <a href="/">Todas</a>
+</div>
+<app-no-encontrada [visible]="!foods && !(comidaFiltrada && comidaFiltrada.length > 0)" ressetLinkText="Volver a Buscar"></app-no-encontrada>
+<ul *ngIf="comidaFiltrada">
+    <li *ngFor="let food of comidaFiltrada">
+        <a routerLink="/food/{{food.id}}">
+            <img  [src]="food.image" alt="{{food.nombre}}">
+        <div class="content">
+            <div class="name">
+                {{food.nombre}}
+            </div>
+            <span class="favorite {{food.favorite? '':'not'}}">❤️</span>
+            <ngx-stars [readonly]="true" [size]="1" [initialStars]="food.stars" ></ngx-stars>
+            <div class="product-item-footer">           
+            </div>
+            <div class="price">
+                {{food.price | currency }}
+            </div>
+        </div>
+    </a>
+    </li>
+</ul>
+
+
+<ul *ngIf="(!comidaFiltrada || comidaFiltrada.length === 0) && foods">
+    <li *ngFor="let food of foods">
+        <a routerLink="food/{{food.id}}">
+            <img  [src]="food.image" alt="{{food.nombre}}">
+        <div class="content">
+            <div class="name">
+                {{food.nombre}}
+            </div>
+            <span class="favorite {{food.favorite? '':'not'}}">❤️</span>
+            <ngx-stars [readonly]="true" [size]="1" [initialStars]="food.stars" ></ngx-stars>
+            <div class="product-item-footer">           
+            </div>
+            <div class="price">
+                {{food.price | currency }}
+            </div>
+        </div>
+    </a>
+    </li>
+</ul>
